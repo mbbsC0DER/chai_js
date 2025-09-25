@@ -1,1 +1,2 @@
-# chai_js
+# learning Javascript 
+## notes provided along with the code .
