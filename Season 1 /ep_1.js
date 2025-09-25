@@ -32,9 +32,28 @@ console.log(typeof acc_name) //string
 console.log(typeof null) //object 
 console.log(typeof undefined) // undefined 
 
+let score = "23abc"
+console.log(typeof score) //string
+let value = Number(score)
+console.log(typeof value) //number 
+console.log(value) //NaN
+let a = null 
+console.log (Number(a)) // 0
+console.log (typeof(undefined)) //undefined 
 
+console.log(Boolean()) //false
+console.log(Boolean("hi")) //true
 
+/*
+TYPE CONVERSIONS 
 
+1 <--> true 
+2 <--> false 
+"12abs" --> string (on printing : nan)
+null --> 0 (number)
+null typeof --> object 
+undefined typeof --> undefined 
 
+*/
 
 
