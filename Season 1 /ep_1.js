@@ -16,7 +16,7 @@ let acc_state
 // console.table([acc_name , account_id , acc_no , acc_state])
 
 /*
-DATA TYPES :
+*****************************DATA TYPES****************************************
 
 number --> 2^53
 bigint
@@ -55,5 +55,31 @@ null typeof --> object
 undefined typeof --> undefined 
 
 */
+
+//************************OPERATIONS***************************************** */
+
+console.log(2%3)
+let str1 = "helo"
+let str2 = "duniya"
+console.log(str1 + " " +  str2) //hello duniya
+console.log (2 + "3") // 23
+console.log (2 + 2 + "2") //42 
+console.log ("3" + 3 + 4 ) //334 (implicit typeconversion to string)
+console.log (+true) //1
+console.log (+"") //0
+
+console.log ("2" > 1); //true
+console.log (null < 0 ) //false
+console.log (null <= 0 ) //true
+console.log (null == 0) //false
+
+/* 
+Comparison operator converts the null to a number making it 0 .
+Equality me aisa nhi hota so it gives false . 
+
+"===" --> triple equal to checks ( data type + value )
+*/
+
+console.log (undefined >= 0) //false
 
 
