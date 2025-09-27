@@ -68,3 +68,32 @@ const min = 99
 const max = 1000
 
 console.log(Math.floor(Math.random() * (max - min + 1) + min))
+
+/*************************************DATE****************************************** */
+
+//epoch = JAN 1ST 1970 
+
+let my_date = new Date()
+console.log(my_date.toString()) //Sat Sep 27 2025 02:56:32 GMT+0000 (Coordinated Universal Time)
+
+console.log(my_date.toLocaleString()) //9/27/2025, 2:57:51 AM
+console.log(my_date.toLocaleDateString()) //9/27/2025
+console.log (my_date.toDateString()) //Sat Sep 27 2025
+console.log(my_date.toJSON()) //2025-09-27T03:00:44.047Z
+console.log(my_date.toISOString()) //same as above
+
+let my_din = new Date(2025 , 11 , 30 , 5 , 7) //months start from 0
+console.log(my_din.toDateString()) //Tue Dec 30 2025
+console.log (my_din.toLocaleTimeString()) //5:07:00 AM
+
+let my_divas = new Date("02-25-2025")
+console.log(my_divas.toDateString()) //Tue Feb 25 2025
+
+let my_timestamp = Date.now()
+console.log(my_timestamp) //can be used for time sensitive polls
+console.log(my_divas.getTime())
+
+console.log(my_date.getFullYear()) //2025
+
+//to get todays date
+console.log(my_date.toLocaleString("en-IN" , {timeZone : "Asia/Kolkata"}))
