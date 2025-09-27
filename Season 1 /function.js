@@ -5,6 +5,7 @@ smn -> this is only reference
 smn() -> this is fn executed 
 
 console me global scope alag hai aur node me alag 
+nested functions works like bade bacho se ice cream maang sakte par bache bado se nhi maang sakte 
 */
 
 function smn(n = "lol"){
@@ -55,3 +56,24 @@ function say_marks (getarr){
     return console.log (`You got ${getarr[0]} in maths & ${getarr[1]} in english`)
 }
 say_marks([99,39])//You got 99 in maths & 39 in english
+
+if (true){
+    const username = "prahtam"
+    if (username == "prahtam"){
+        const wab = 2
+        console.log (username + wab) //pratham2
+    }
+    // console.log (wab) // error
+}
+// console.log(username) // error
+
+console.log (add_one(3))
+function add_one(n)
+{
+    return n+1
+}
+// console.log(add_two(3)) //error cant call before as it is stored in an variable 
+const add_two = function(n){
+    return n+2
+}
+//this was hoisting 
