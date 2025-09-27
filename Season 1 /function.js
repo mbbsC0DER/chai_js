@@ -3,6 +3,8 @@
 /*
 smn -> this is only reference 
 smn() -> this is fn executed 
+
+console me global scope alag hai aur node me alag 
 */
 
 function smn(n = "lol"){
