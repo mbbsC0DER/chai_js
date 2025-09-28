@@ -5,7 +5,7 @@ smn -> this is only reference
 smn() -> this is fn executed 
 
 console me global scope alag hai aur node me alag 
-nested functions works like bade bacho se ice cream maang sakte par bache bado se nhi maang sakte 
+nested functions works like bade bacho ko ice cream de sakte par bade bacho se kuch le nhi sakte  
 */
 
 function smn(n = "lol"){
