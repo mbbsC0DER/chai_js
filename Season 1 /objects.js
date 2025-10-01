@@ -47,7 +47,7 @@ console.log ( twitter_user) //{}
 
 twitter_user.id = 5222343
 twitter_user.name = "john dahl"
-console.log ( twitter_user) //{}
+console.log ( twitter_user) //{ id: 5222343, name: 'john dahl' }
 
 const player = {
     id : 2323 ,
