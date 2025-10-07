@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dom 2</title>
+  </head>
+  <body style="background-color: black; color: aliceblue">
+    <ul class="lang">
+      <li>Javascript</li>
+    </ul>
+  </body>
+  <script>
+    //Adding values to list thru function
+
+    function add_li_item_optimised(val) {
+      let list = document.querySelector("ul");
+      let new_li = document.createElement("li");
+      let li_item = document.createTextNode(val);
+
+      new_li.append(li_item); // attach text to <li>
+      list.appendChild(new_li); // attach <li> to <ul>
+    }
+
+    function add_li_item(val) {
+      let new_li = document.createElement("li");
+      new_li.innerHTML = val;
+      document.querySelector("ul").appendChild(new_li);
+    }
+
+    add_li_item("python");
+    add_li_item("c"); //in this it traverses the entire window tree
+
+    add_li_item_optimised("cpp"); //optimised approach
+
+    //Editing values 
+    let edit_li = document.querySelector("li:nth-child(2)")
+    edit_li.innerText = "html" //less optimised aproach
+
+    let new_li = document.createElement("li")
+    let text = document.createTextNode("css")
+    new_li.append(text)
+    edit_li.replaceWith(new_li) // html got changed to css
+
+    //to remove an element
+    let remo_eli = document.querySelector("li:nth-child(2)")
+    remo_eli.remove() //css removed 
+
+  </script>
+</html>

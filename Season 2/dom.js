@@ -9,7 +9,7 @@ textContent --> joh hidden hai voh bhi dega
 innerHTML --> agar text ke saath hume html tags bhi chahiye tabh
 querySelector("tagname/css selector") --> kisi bhi tag ke first occurence ko select karne ke liye
 querySelectorAll () --> return a node list (similar to arrays) par isme ham for each hi use kar sakte map use nhi kar sakte ..
-document.getElementByClassName("name") --> return a HTML collection
+document.getElementByClassName("name") --> return a HTML collection (isme hum normal for loop laga sakte hai but not forEach)
 
 to convert an htmlcollection to an array
 
@@ -24,3 +24,4 @@ list_query.forEach( (i) => {
 list_query.forEach( (i)=> {
   i.style.color = "black"
 }) //all li tags ka color gets changed to black
+
