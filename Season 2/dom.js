@@ -12,9 +12,8 @@ querySelectorAll () --> return a node list (similar to arrays) par isme ham for 
 document.getElementByClassName("name") --> return a HTML collection (isme hum normal for loop laga sakte hai but not forEach)
 
 to convert an htmlcollection to an array
-
+Array.from(html-collection-name)
 */
-
 let list_query = document.querySelectorAll("li")
 
 list_query.forEach( (i) => {
