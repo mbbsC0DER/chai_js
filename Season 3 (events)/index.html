@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body style="background-color: mediumslateblue;">
+    <h2>Collage of Images</h2>
+    <ul id="images">
+        <li><img src="https://i.pinimg.com/1200x/b0/eb/45/b0eb4588f001157ec948b25aa612987d.jpg" alt="" id="ps1" width="200px"></li>
+        <li><img src="https://i.pinimg.com/736x/2f/ab/29/2fab29c5e01c32f2f9c41f9a831abfb5.jpg" alt="" id="ps2" width="200px"></li>
+        <li><img src="https://i.pinimg.com/736x/d4/52/94/d45294dbd23b3ef069d593bc34498d24.jpg" alt="" id="ps3" width="200px"></li>
+        <li><img src="https://i.pinimg.com/736x/61/8e/1c/618e1c38a53703c1e7008c7763e0a1bd.jpg" alt="" id="ps4" width="200px"></li>
+
+        <li><a href="https://google.com" id="google" style="color: aliceblue;">Google</a></li>
+    </ul>
+</body>
+<script>
+    //mostly events synchronously hi run hote hai 
+    //events basically browser ke alag alag functions ko batate hai 
+    // document.getElementById('ps3').onclick = ()=>{
+    //     alert("ppretty hi ") ;   //bahut jyada information nhi deti 
+    //     console.log("hello")
+    // }
+    //attachedEvent() --> internet explorer ke time hua karta tha 
+    
+    //type , timestamp , defaultPrevented , target , toElement , srcElement , currentTarget , clientX , clientY , secrrenX , screenY , altkey , ctrlkey , shiftkey , keyCode , 
+    document.getElementById("images").addEventListener("click" , function (e) {
+        console.log("entire list clicked !")
+    } , false)
+    document.getElementById("ps4").addEventListener("click" , function(e){
+        console.log("clicked inside the list ");
+        e.stopPropagation(); // abh voh outer event ko nhi register karega 
+    } , false )
+    //event propagation 
+    //1. event bubbling (false) -->jaise bubble nice se upar jata hai vaise hi bubbling me inner html ka click pehle         register   hoga fir outer element ka click register kiya jayega 
+    //2. event capturing (true) --> isme bubbling ka ulta hota hai 
+    //outside element ko true dia and inside ko false to outside ke acc chalega and vice versa .
+
+    document.getElementById("google").addEventListener("click" , function(e){
+        console.log("gugal clicked");
+        e.preventDefault(); //uski default behaviour ko avoid karta hai . 
+        e.stopPropagation();
+    }, false)
+
+    document.getElementById("images").addEventListener("click" , function (e){
+        console.log(e.target);
+        if(e.target.tagName === "IMG")
+    {
+        let rem = e.target.parentNode ; 
+        rem.remove(); // will remove that list item with bullets 
+        let element = e.target ; //willl only remove the image not the bullets 
+        element.remove();
+    }
+    else 
+    {
+        console.log("cant remove entire list ")
+    }
+        
+        //rem.parentNode.removeChild(rem)
+    } , false)
+    
+</script>
+</html>
