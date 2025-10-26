@@ -83,9 +83,8 @@ Equality me aisa nhi hota so it gives false .
 console.log (undefined >= 0) //false
 
 // **************************************************SHERYAN **********************************************************
-//Js is a scripting language --> 
+//Js is a scripting language --> line by line execute hogi and dusre systems ko control karne me use hoti hai .
 // humara code --> interpreter --> binary code me conv karta hai (joh computer samjhte hai . )
 // js - BRENDAN EICH (Netscape me kaam karte the)
 // 15-16 dino me js banayi ( lot of issues / errors )
 // further lot of versions > after version > after version ..... >>> ES6 (GOAT) (lot of updates) 
-// 
