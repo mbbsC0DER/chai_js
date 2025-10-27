@@ -74,13 +74,130 @@ function display(val){
         case "all-clear":
             arr.splice(0);
             break
+        case "equal":
+            // eval_postfix();
+            // let test = combine_digits(arr)
+            // console.log(test)
+            // let test2 = infix_to_postfix(test)
+            // console.log(test2)
+            arr = eval_postfix()
+            break
         default:
             alert("invalid")
     }
     
-    input.value = arr.join(" ")
+    input.value = arr.join("")
 }
 
-function pusher(element){
-    //postfix array banane ke liye 
+
+function combine_digits(get_arr) {
+    //array me n digits combine karna 
+    let number = ""
+    let comb_arr = []
+
+    for (let i of get_arr)
+    {
+        if (!isNaN(i) || i === ".")
+        {
+            number += i
+        }
+        else {
+            if(number)
+            {
+                comb_arr.push(parseFloat(number))
+                number=""
+            }
+            comb_arr.push(i)
+        }
+    }
+    if(number)
+    {
+        comb_arr.push(parseFloat(number))
+    }
+
+    return comb_arr ;
 }
+
+
+
+function infix_to_postfix(infix){
+    //infix array ko postfix me convert karna 
+    let postfix = []
+    let stack = []
+    const priority = {"+" : 1 , "-" : 1 , "x" : 2 , "/" : 2 , "%" : 2 , "sqrt" : 3}
+
+    for (let i of infix)
+    {
+        if(!isNaN(i))
+        {
+            postfix.push(i)
+        }
+        else{
+            while(stack.length && priority[stack[stack.length - 1]] >= priority[i])
+            {
+                postfix.push(stack.pop())
+            }
+            stack.push(i)
+        }
+    }
+
+    while(stack.length){
+        postfix.push(stack.pop())
+    }
+
+    return postfix
+}
+
+
+function eval_postfix(){
+    //postfix array ko solve karna 
+    let comb = combine_digits(arr)
+    let pfix = infix_to_postfix(comb)
+    let result = []
+    for (let i of pfix)
+    {
+        if(!isNaN(i))
+        {
+            result.push(i)
+        }
+        else{
+            if(i === "sqrt")
+            {
+                let a = result.pop()
+                result.push(Math.sqrt(a))
+            }
+            else if (i === "%")
+            {
+                let a = result.pop()
+                result.push(a/100)
+            }
+            else{
+                let a = result.pop()
+                let b = result.pop()
+
+                switch (i){
+                    case "+":
+                        result.push(a+b)
+                        break
+                    case "-":
+                        result.push(b-a)
+                        break
+                    case "x":
+                        result.push(b*a)
+                        break
+                    case "/":
+                        result.push(b/a)
+                        break
+                }
+            }
+        }
+    }
+    
+    return result
+
+}
+
+
+
+
+
