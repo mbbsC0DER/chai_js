@@ -1,0 +1,63 @@
+<!-- //console.log(typeof data) //string me by dflt data aata hai par humne usse json me convert kar diya . -->
+<!-- xml - extensible markup language 
+    data store aur share karnne ka tarika hai . isme tags ke form me likhte hai . abhi json use hota hai -->
+<!-- AJAX (asynchronous js & xml) = isme webpage ko doobara reload kiye bina hum data ko bhej ya accpet kar sakte hai  -->
+<!-- Asynchronous ka matlab code chalte rahega agar beech me koi request response aana ho toh uske liye code nhi rukega  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>hello duniya...</h1>
+    <div height="500px" width="250px">
+        <img src="" alt="" class="avatar">
+        <div class="name"></div>
+    </div>
+</body>
+<script>
+    const req_url = "https://api.github.com/users/mbbsC0DER"
+    const xhr = new XMLHttpRequest();
+    console.log(xhr.readyState) //0 = UNSENT = Request object created, but open() not called yet.
+    xhr.open("GET", req_url)
+    console.log(xhr.readyState) //1 = OPENED = open() has been called — connection set up.
+    xhr.onreadystatechange = function () {      //jaise state chanes honge yeh fn call hoga 
+        console.log(xhr.readyState, xhr.status)
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            get_data();
+        }
+    }
+    console.log("before send")
+    xhr.send()
+    document.body.innerHTML = "<div><img><br><p></p></div>"
+    let div = document.querySelector("div")
+    let img = document.querySelector("img")
+    let para = document.querySelector("p")
+    let card_select = function (){
+        div.style.height = "500px"
+        div.style.width = "250px"
+        div.style.padding = "20px"
+        div.style.border = "2px solid black"
+        div.style.textAlign = "center"
+        // div.border = "2px solid black"
+        //TODO : img tag ka src & p tag ka content 
+        img.style.height = "50%"
+        img.style.width = "auto"
+        img.style.objectFit = "cover"
+        
+    }
+    let get_data = function() {
+        card_select()
+        const data = JSON.parse(xhr.responseText)
+        const name = data.login
+        const src_url = data.avatar_url
+        img.setAttribute("src" , "src_url")
+        para.innerHTML = name
+    }
+</script>
+
+</html>
