@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number test</title>
+</head>
+<body>
+    <form>
+        <input type="number">
+        <button>ANSWER</button>
+    </form>
+</body>
+<SCRipt>
+    document.querySelector("form").addEventListener("submit" , (e)=> {
+        e.preventDefault()
+
+        let input = parseInt(document.querySelector("input").value / 2 )
+        console.log (input)
+        let even =  ( input * (input + 1 ) )                
+        console.log ("EVEN : " ,  even)
+        let odd = input **2 
+        console.log ("ODD : " , odd)
+    })
+</SCRipt>
+</html>
