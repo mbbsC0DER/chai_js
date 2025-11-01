@@ -17,7 +17,7 @@
         
             document
                 .querySelector("button")
-                .addEventListener("click" , this.display.bind(this))
+                .addEventListener("click" , this.display) //agar bind nhi likha toh voh button ke context me ho jayega na ki ret obj ke context me 
         }
         display(){
             console.log ("buttton clicked");
