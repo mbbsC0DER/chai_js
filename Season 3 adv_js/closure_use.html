@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLosure</title>
+</head>
+<body>
+    <button id="red">RED</button>
+    <button id="blue">BLue</button>
+</body>
+    <script>
+        // document.getElementById("red").onclick = function(){
+        //     document.body.style.backgroundColor = "red"
+        // }
+        // document.getElementById("blue").onclick = function(){
+        //     document.body.style.backgroundColor = "blue"
+        // }
+        function color_changer(color){
+            // document.body.style.backgroundColor = `${color}` ;
+            return function(){document.body.style.backgroundColor = `${color}` ;}
+        }
+        document.getElementById("red").onclick = color_changer("red")
+        document.getElementById("blue").onclick = color_changer("blue")
+    </script>
+</html>
