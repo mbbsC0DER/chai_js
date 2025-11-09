@@ -77,3 +77,33 @@ const add_two = function(n){
     return n+2
 }
 //this was hoisting 
+
+
+function higher_order(a){
+    //this is a higher order function 
+}
+higher_order(
+    function callback(){
+        //this is a callback function as it was sent as an argument to another function 
+    }
+)
+
+//first class function (fcf) => uss language functions variable / value ki tarah use ho sakte hai .
+
+//pure function => inp op same , no side effect 
+function addval(val){
+    console.log (val+4)
+}
+addval(4)
+addval(4)
+addval(4)
+
+//impure function => op different every time , side effect ho sakta hai 
+
+function rand_num (val){
+    let a = Math.floor(Math.random() * 11) + val 
+    console.log (a);
+}
+rand_num(5)
+rand_num(5)
+rand_num(5)

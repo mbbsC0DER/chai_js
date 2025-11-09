@@ -1,4 +1,4 @@
-//lexical scoping 
+//lexical scoping => function apne local variables + parent scope ke variables ko bhi access kar sakta hai
 function outer(){
     let name = "pratham"
     function inner(){
@@ -16,12 +16,14 @@ outer()
 
 function outer_closure (){
     let name = "negi"
-
+    console.log ("sigma")
     function inner_closure(){
         console.log ( "Inner closure : " , name)
     }
     return inner_closure
 }
-const store = outer_closure()   //fn ka pura lexical scope return hoga 
+const store = outer_closure() //fn ka pura lexical scope return hoga 
 store()     //Inner closure :  negi
+console.log (store)
+
 

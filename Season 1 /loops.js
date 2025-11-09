@@ -53,7 +53,7 @@ for (const key  in my_obj) {
 
 const new_arr = ["js" , "python", "html" , "css"]
 for (const key in new_arr) {
-    // console.log(key);
+// console.log(key);
 } //indexes de rha values nhi
 //map ke upar bhi nhi lagta forin
 
@@ -72,28 +72,28 @@ for (const key in new_arr) {
 // }
 // new_arr.forEach(print_me)    //bas fn ka reference dena hai isme
 new_arr.forEach( (item , index , arr)=>{
-//     console.log(item , index , arr);
+    // console.log(item , index , arr);
 })
 
 
 //array including objects ko kaise for each se handle kare 
-// const arr_with_obj = [
-//     {
-//         name : "pratham" , 
-//         age : 20
-//     } ,
-//     {
-//         name : "june" ,
-//         age : 12
-//     } ,
-//     {
-//         name : "silver" ,
-//         age : 22
-//     }
-// ]
-// arr_with_obj.forEach( (item) => {
-//     console.log(item.age);
-// })
+const arr_with_obj = [
+    {
+        name : "pratham" , 
+        age : 20
+    } ,
+    {
+        name : "june" ,
+        age : 12
+    } ,
+    {
+        name : "silver" ,
+        age : 22
+    }
+]
+arr_with_obj.forEach( (item) => {
+    console.log(item.name , item.age);
+})
 
 const each_arr = new_arr.forEach( (item) => {
     // console.log(item)
