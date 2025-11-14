@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM 1st task</title>
+  <style>
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    html,body{height: 100%;width: 100%;}
+    html{background: conic-gradient( black , green ,black ,  red , black);color: gold;}
+    body{height : 100% ; width: 100%; background-color: rgba(50, 50, 50, 0.251) ; display : flex;justify-content: center;align-items: center;flex-direction: column;gap: 1rem;font-size: 2rem;backdrop-filter: blur(25px);}
+    div{border: 2px dotted goldenrod; border-radius: 100px;padding: 20px;}
+  </style>
+</head>
+<body>
+      <h1>counter</h1>
+      <div>0</div>
+</body>
+<script>
+  const h1 = document.querySelector("h1")
+  const number = document.querySelector("div")
+  h1.style.userSelect = "none"
+  number.style.userSelect = "none"
+  // const div = document.querySelector("div")
+  let count = 0 
+  const clicked_half = Math.floor(window.innerWidth / 2)
+  document.body.addEventListener("click" , (e)=> {
+     if (e.clientX < clicked_half){
+      count--
+     }
+     else {
+      count++
+    }
+    number.textContent = count
+  })
+</script>
+</html>

@@ -25,3 +25,32 @@ function outer(){
 }
 const take = outer()
 take()
+
+function runTwice(fn){
+    console.log ("once")
+    fn()
+    console.log ("twice")
+    fn()
+}
+runTwice(()=>{
+    console.log("pratham")
+})
+
+function abcd({name , age}){
+    console.log (name , age)
+}
+abcd ({name : "pratham" , age: 20})
+
+let obj3 = {
+    name : "sigma" ,
+    fnc : function(){ //arrow fn apne parent se value leta hai. 
+        return ()=>{
+            console.log (this)
+        }
+    } 
+    
+}
+let store = obj3.fnc()
+store()
+//agar ek obj ke andar ek noraml function ke andar agar ek aur normal fn banaya aur uske andar this likha toh voh this global object ko batata hai  , lekin agar normal fn ke bajaye arrow fn likha toh voh parent ko batata hai yaani humara obj
+
