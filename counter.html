@@ -3,35 +3,143 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>DOM 1st task</title>
+  <title>IPL Winner</title>
   <style>
     *{margin: 0;padding: 0;box-sizing: border-box;}
     html,body{height: 100%;width: 100%;}
-    html{background: conic-gradient( black , green ,black ,  red , black);color: gold;}
-    body{height : 100% ; width: 100%; background-color: rgba(50, 50, 50, 0.251) ; display : flex;justify-content: center;align-items: center;flex-direction: column;gap: 1rem;font-size: 2rem;backdrop-filter: blur(25px);}
-    div{border: 2px dotted goldenrod; border-radius: 100px;padding: 20px;}
+    body{display: flex; justify-content: center;align-items: center;font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;background-color: rgb(109, 109, 109);}
+    #main{
+      background-color: red;
+       width: 50%;height: 80%;border-radius: 2rem;padding: 4rem;display: flex; justify-content: space-evenly;align-items: center;flex-direction: column;
+    }
+    h1{
+      font-size: 2.3rem;
+    }
+    .box{
+      height: auto;width: auto; padding: 1rem;border-radius: 1rem;background-color: aqua;
+    }
+    button{
+      padding: 1rem;border-radius: 1rem;border: none;
+    }
+    button:active{
+      transform: scale(0.95);
+    }
   </style>
 </head>
 <body>
-      <h1>counter</h1>
-      <div>0</div>
+  <div id="main" >
+        <h1>IPL 2026 Winner</h1>
+        <div class="team-name box"></div>
+        <div class="full-name box"></div>
+        <div class="captain box"></div>
+        <div class="trophies box"></div>
+        <button>Change</button>
+      </div>
 </body>
 <script>
-  const h1 = document.querySelector("h1")
-  const number = document.querySelector("div")
-  h1.style.userSelect = "none"
-  number.style.userSelect = "none"
-  // const div = document.querySelector("div")
-  let count = 0 
-  const clicked_half = Math.floor(window.innerWidth / 2)
-  document.body.addEventListener("click" , (e)=> {
-     if (e.clientX < clicked_half){
-      count--
-     }
-     else {
-      count++
-    }
-    number.textContent = count
+  const iplTeams = [
+  {
+    team_name: "CSK",
+    primary_color: "#FFF100",
+    secondary_color: "#003",
+    team_full_name: "Chennai Super Kings",
+    trophies: 5,
+    team_captain: "MS Dhoni"
+  },
+  {
+    team_name: "MI",
+    primary_color: "#0044AA",
+    secondary_color: "#FFD700",
+    team_full_name: "Mumbai Indians",
+    trophies: 5,
+    team_captain: "Hardik Pandya"
+  },
+  {
+    team_name: "KKR",
+    primary_color: "#2E0854",
+    secondary_color: "#FFD700",
+    team_full_name: "Kolkata Knight Riders",
+    trophies: 3,
+    team_captain: "Ajinkya Rahane"
+  },
+  {
+    team_name: "RCB",
+    primary_color: "#CC1213",
+    secondary_color: "#000000",
+    team_full_name: "Royal Challengers Bengaluru",
+    trophies: 1,
+    team_captain: "Rajat Patidar"
+  },
+  {
+    team_name: "GT",
+    primary_color: "#1B2133",
+    secondary_color: "#FFFFFF",
+    team_full_name: "Gujarat Titans",
+    trophies: 1,
+    team_captain: "Shubman Gill"
+  },
+  {
+    team_name: "SRH",
+    primary_color: "#FF6600",
+    secondary_color: "#FFFFFF",
+    team_full_name: "Sunrisers Hyderabad",
+    trophies: 1,
+    team_captain: "Pat Cummins"
+  },
+  {
+    team_name: "RR",
+    primary_color: "#FC4CFC",
+    secondary_color: "#000000",
+    team_full_name: "Rajasthan Royals",
+    trophies: 1,
+    team_captain: "Sanju Samson"
+  },
+  {
+    team_name: "PBKS",
+    primary_color: "#ED1B24",
+    secondary_color: "#FFFFFF",
+    team_full_name: "Punjab Kings",
+    trophies: 0,
+    team_captain: "Shreyas Iyer"
+  },
+  {
+    team_name: "DC",
+    primary_color: "#0116CF",
+    secondary_color: "#FFFFFF",
+    team_full_name: "Delhi Capitals",
+    trophies: 0,
+    team_captain: "KL Rahul"
+  },
+  {
+    team_name: "LSG",
+    primary_color: "#0057E2",
+    secondary_color: "#FFFFFF",
+    team_full_name: "Lucknow Super Giants",
+    trophies: 0,
+    team_captain: "Rishabh Pant"
+  }
+];
+
+const btn = document.querySelector("button")
+const team_name = document.querySelector(".team-name")
+const team_full_name = document.querySelector(".full-name")
+const captain = document.querySelector(".captain")
+const trophies = document.querySelector(".trophies")
+const box = document.querySelectorAll(".box")
+const main = document.getElementById("main")
+
+btn.addEventListener("click" , ()=>{
+  let team = iplTeams[Math.floor(Math.random() * (iplTeams.length-1))]
+  team_name.textContent = team.team_name
+  team_full_name.textContent = team.team_full_name
+  captain.textContent = team.team_captain
+  trophies.textContent = team.trophies
+  main.style.backgroundColor = team.secondary_color
+  box.forEach( (i)=>{
+      i.style.backgroundColor = team.primary_color
   })
+  // box.style.backgroundColor = team.primary_color
+
+})
 </script>
 </html>
