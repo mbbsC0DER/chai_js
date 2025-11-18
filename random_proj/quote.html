@@ -15,35 +15,43 @@
         height: 100%;
         width: 100%;
       }
+      body{
+        overflow: hidden;
+        background-color: black;
+      }
       main {
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100%;
-        width: 100%;
-        background-color: black;
-        position: relative;
-        overflow: hidden;
-      }
-      main button {
-        padding: 10px 20px;
-        border-radius: 10px;
-        font-size: 1rem;
-        cursor: pointer;
-        font-weight: 700;
-        z-index: 2;
-      }
-      button:active {
-        transform: scale(0.95);
-        background-color: pink;
       }
       p{
         white-space: nowrap;
+      }
+      #cursor{
+        height: 30px;
+        width: 30px;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute ;
+        transition: 0s linear all;
+        mix-blend-mode: difference;
+      }
+      main h1{
+        font-size: 6rem;
+        font-weight: 900;
+        color: white;
+        
       }
     </style>
   </head>
   <body>
     <main>
+      <div id="cursor"></div>
+      <h1>Patham Negi</h1>
       <!-- <button>ADD</button> -->
     </main>
   </body>
@@ -97,7 +105,7 @@
     }  
     let promises = new Array
 
-    for (let i = 0 ; i < 20 ; i++){
+    for (let i = 0 ; i < 10 ; i++){
         promises.push(get_random_quote())
     }
     Promise.all(promises)
@@ -118,11 +126,20 @@
         // para.style.whiteSpace = nowrap;
 
         main.appendChild(para)
-        console.log (para)}
+        }
     })
     .catch( (error) =>{
         console.warn("API ERROR" , error)
     })
         
+    function custom_cursor(){
+      const cursor = document.getElementById("cursor")
+
+      main.addEventListener("mousemove" , (e)=>{
+        cursor.style.left = e.x + "px"
+        cursor.style.top = e.y + "px"
+      })
+    }
+      custom_cursor()
   </script>
 </html>
