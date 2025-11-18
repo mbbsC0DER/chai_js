@@ -37,16 +37,19 @@
         transform: scale(0.95);
         background-color: pink;
       }
+      p{
+        white-space: nowrap;
+      }
     </style>
   </head>
   <body>
     <main>
-      <button>ADD</button>
+      <!-- <button>ADD</button> -->
     </main>
   </body>
   <script>
     const main = document.querySelector("main");
-    const btn = document.querySelector("button");
+    // const btn = document.querySelector("button");
 
     function random_color() {
       let hex = "0123456789ABCDEF";
@@ -56,37 +59,70 @@
       }
       return color;
     }
-    btn.addEventListener("click", () => {
-      let x = Math.floor(Math.random() * 100);
-      let y = Math.floor(Math.random() * 100);
-      const div = document.createElement("div");
-      div.style.height = "70px";
-      div.style.width = "70px";
-      div.style.backgroundColor = random_color();
-      div.style.position = "absolute";
-      div.style.top = y + "%";
-      div.style.left = x + "%";
-      div.style.rotate = y + "deg";
+    // btn.addEventListener("click", () => {
+    //   let x = Math.floor(Math.random() * 100);
+    //   let y = Math.floor(Math.random() * 100);
+    //   const div = document.createElement("div");
+    //   div.style.height = "70px";
+    //   div.style.width = "70px";
+    //   div.style.backgroundColor = random_color();
+    //   div.style.position = "absolute";
+    //   div.style.top = y + "%";
+    //   div.style.left = x + "%";
+    //   div.style.rotate = y + "deg";
 
-      main.appendChild(div);
-    });
-
+    //   main.appendChild(div);
+    // });
+    const fonts = [
+  "Ubuntu Mono",        // Ubuntu's default
+  "DejaVu Sans Mono",   // Very common across distros
+  "Liberation Mono",    // Fedora / RedHat favorite
+  "Noto Sans Mono",     // Google’s universal font family
+  "JetBrains Mono",     // Popular dev font (needs install)
+  "Fira Code",          // Ligature-friendly, user-installed usually
+  "Source Code Pro",    // Adobe open source, often installed
+  "Hack",               // Nerds love it
+  "Inconsolata",        // Readable, clean monospace
+  "Monospace"           // Generic fallback
+];
     let quote_arr = new Array ;
-      fetch("https://api.freeapi.app/api/v1/public/quotes/quote/random")
-        .then((response) => {
-          return response.json();
+    function get_random_quote(){
+        return fetch("https://api.freeapi.app/api/v1/public/quotes/quote/random")
+        .then( (result) => {
+            return result.json()
         })
-        .then((data) => {
-          const quotes = data.data;
-          console.log (quotes)
-        //   const rand_index = Math.floor(Math.random() * quotes.length);
+        .then( (data)=>{
+            return data.data.content
+        } )
+    }  
+    let promises = new Array
 
-          for (let i = 0 ; i < 10 ; i++){
-            quote_arr.push(quotes.content)
-          }
-            // quotes[rand_index].content;
-        })
-        .catch((error) => console.log("there is an api error , ", error));
-    console.log(quote_arr)
+    for (let i = 0 ; i < 20 ; i++){
+        promises.push(get_random_quote())
+    }
+    Promise.all(promises)
+    .then( (resolve) =>{
+        quote_arr = resolve
+        for (let i = 0 ; i < quote_arr.length ; i++)
+        {let x = Math.floor(Math.random() * 90);
+        let y = Math.floor(Math.random() * 90);
+        const para = document.createElement("p")
+        
+        para.textContent = quote_arr[i]
+        para.style.position = "absolute"
+        para.style.top = y + "%";
+        para.style.left = x + "%";
+        para.style.fontFamily = fonts[Math.floor(Math.random() * fonts.length)]
+        para.style.color = random_color()
+        para.style.scale = Math.floor(Math.random() * 2 + 1)
+        // para.style.whiteSpace = nowrap;
+
+        main.appendChild(para)
+        console.log (para)}
+    })
+    .catch( (error) =>{
+        console.warn("API ERROR" , error)
+    })
+        
   </script>
 </html>
