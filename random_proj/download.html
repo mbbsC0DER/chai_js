@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloader</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        html,body{height: 100%;width: 100%;background-color: black;}
+        main{height: 100%;width: 100%;display: flex;justify-content: center;align-items: center;flex-direction: column;font-family: monospace;}
+        .card{height: auto;width: 80%;display: flex;justify-content: center;align-items: center;flex-direction: column;}
+        button{padding: 20px 25px;font-size: 1.5rem;border-radius: 1rem;border: none;font-weight: 700;transition: all 0.5s ease;cursor: pointer;}
+        button:active{transform: scale(0.80);}
+        .outer{height: 20px;width: 100%;background-color: gray; border-radius: 20px;opacity: 0;}
+        .inner{height: 100%;width: 0%;background-color: green;transition: all 0.2s linear; border-radius: 20px}
+        .number{height: 3rem;width: 2rem;font-size: 3rem;color: white;padding-left: 80%;opacity: 0;padding-top: 10px;}
+    </style>
+</head>
+<body>
+    <main>
+        <div class="card">
+
+            <div class="outer">
+                <div class="inner"></div>
+            </div>
+            <span class="number">0%</span>
+            <button>Download</button>
+            
+        </div>
+    </main>
+</body>
+<script>
+    const btn = document.querySelector("button")
+    const main = document.querySelector("main")
+    const outer =  document.querySelector(".outer")
+    const inner =  document.querySelector(".inner")
+    const num = document.querySelector(".number")
+    let count = 0
+    
+    btn.addEventListener( "click" , ()=>{
+        let val = Math.floor(Math.random() * 101 + 1)
+        console.log(val)
+        btn.style.pointerEvents = "none"
+        btn.style.transform = "translateY(100px)"
+        outer.style.opacity = 1
+        num.style.opacity = 1
+        let intervalId ; 
+        intervalId = setInterval(()=>{
+            count++
+            inner.style.width = count + "%"
+            num.textContent = count + "%"
+            // console.log (count) 
+            if(count === 100){
+                console.log("hii")
+                btn.style.opacity = 0.2
+                btn.textContent = "Downloaded"
+                clearInterval(intervalId);
+            }
+        } , val)
+        }
+    )
+
+</script>
+</html>
