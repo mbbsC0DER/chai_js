@@ -1,79 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add friend</title>
     <style>
-        *{margin: 0;padding: 0;box-sizing: border-box;}
-        html,body{height: 100%;width: 100%;font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;}
-        main{height: 100%;width: 100%;display: flex;justify-content: center;align-items: center;background-color: rgb(23, 162, 162);}
-        div.card{height: auto;width: 320px ; max-width: 90%;background-color: rgb(255, 255, 255);padding: 20px; border-radius: 15px;text-align: center;position: relative;}
-        .image {height: 60%; width: auto ;object-fit: contain;object-position: center;position: relative;}
-        .image img{height: 100%;width: 100%;border-radius: 20px;overflow: hidden;}
-        div h1 , h3{margin: 15px ;}
-        div h3{color: rgb(255, 0, 0);font-size: 20px;}
-        .btn{padding: 16px 24px;margin: 10px 20px ;border: none;border-radius: 20px;font-size: 15px;font-weight: 700;}
-        .add{background-color: rgb(17, 224, 17);color: white;}
-        /* .remove{background-color: #dadada;color: #111;} */
-        .btn:active{
-            transform: scale(0.95);
-        }
-        .card i {font-size: 60px;color: pink;position: absolute ; top: 50%; left: 50%;transform: translate(-50% , -50%) scale(0) rotate(90deg);transition: transform ease 0.3s;}
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+      }
+      main {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(23, 162, 162);
+      }
+      div.card {
+        height: auto;
+        width: 320px;
+        max-width: 90%;
+        background-color: rgb(255, 255, 255);
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        position: relative;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+      }
+      .image {
+        /* height: 60%; */
+        width: 100%;
+        object-fit: contain;
+        object-position: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .image img {
+        /* height: 100%; */
+        width: 100%;
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      div h1,
+      h3 {
+        margin: 15px;
+      }
+      div h3 {
+        color: rgb(255, 0, 0);
+        transition: color .3s ease, opacity .3s ease;
+        font-size: 20px;
+      }
+      .btn {
+        padding: 16px 24px;
+        margin: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: 700;
+      }
+      .add {
+        background-color: rgb(17, 224, 17);
+        color: white;
+      }
+      /* .remove{background-color: #dadada;color: #111;} */
+      .btn:active {
+        transform: scale(0.95);
+      }
+      .card i {
+        font-size: 60px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0) rotate(90deg);
+        transition: all cubic-bezier(0.76, 1.16, 0.77, 1.17) 0.3s;
+        background: linear-gradient(45deg, #f9ce34, #ee2a7b, #6228d7);
+        color: transparent;
+        background-clip: text;
+        opacity: 0;
+        text-shadow: 0 3px 15px rgba(0,0,0,0.15)
+      }
     </style>
     <link
-    href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
-    rel="stylesheet"
-/>
-</head>
-<body>
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.7.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
     <main>
-        <div class="card">
-            <div class="image">    
-                <img src="https://imgs.search.brave.com/p1-2p58QFPEZ5u8wloDMkGHcsLwcHAJU-UOGoIu-ADo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudG9paW1nLmNv/bS90aHVtYi9pbWdz/aXplLTIzNDU2LG1z/aWQtNzgzODg0MzUs/d2lkdGgtNjAwLHJl/c2l6ZW1vZGUtNC83/ODM4ODQzNS5qcGc" alt="henry cavil">
-                <i class="ri-heart-3-fill"></i>
-            </div>
-            <h1>Henry Cavil</h1>
-            <h3>Stranger</h3>
-            <!-- <button class="btn remove">Remove</button> -->
-            <button class="btn add">Add friend</button>
+      <div class="card">
+        <div class="image">
+          <img
+            src="https://imgs.search.brave.com/p1-2p58QFPEZ5u8wloDMkGHcsLwcHAJU-UOGoIu-ADo/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zdGF0/aWMudG9paW1nLmNv/bS90aHVtYi9pbWdz/aXplLTIzNDU2LG1z/aWQtNzgzODg0MzUs/d2lkdGgtNjAwLHJl/c2l6ZW1vZGUtNC83/ODM4ODQzNS5qcGc"
+            alt="henry cavil"
+          />
+          <i class="ri-heart-3-fill"></i>
         </div>
+        <h1>Henry Cavil</h1>
+        <h3>Stranger</h3>
+        <!-- <button class="btn remove">Remove</button> -->
+        <button class="btn add">Add friend</button>
+      </div>
     </main>
-</body>
-<script>
+  </body>
+  <script>
     //first project
-    const is_status = document.querySelector("h3")
-    const add = document.querySelector(".add")
-    let flag = 0 
-    
-    add.addEventListener("click" , ()=>{
-        if (flag === 0){
-            is_status.textContent = "Friend"
-            is_status.style.color = "green"
-            flag = 1
-            add.textContent = "Remove friend"
-            add.style.backgroundColor = "#dadada"
-            add.style.color = "#111"
-        }
-        else{
-             is_status.textContent = "Stranger"
-            is_status.style.color = "red"
-            flag = 0
-            add.textContent = "Add friend"
-            add.style.backgroundColor = "rgb(17, 224, 17)"
-            add.style.color = "white"
-        }
+    const is_status = document.querySelector("h3");
+    const add = document.querySelector(".add");
+    let flag = 0;
 
-    })  
+    add.addEventListener("click", () => {
+      if (flag === 0) {
+        is_status.textContent = "Friend";
+        is_status.style.color = "green";
+        flag = 1;
+        add.textContent = "Remove friend";
+        add.style.backgroundColor = "#dadada";
+        add.style.color = "#111";
+      } else {
+        is_status.textContent = "Stranger";
+        is_status.style.color = "red";
+        flag = 0;
+        add.textContent = "Add friend";
+        add.style.backgroundColor = "rgb(17, 224, 17)";
+        add.style.color = "white";
+      }
+    });
 
     //2nd project
-    const image = document.querySelector(".image")
-    const love = document.querySelector("i")
-    image.addEventListener("dblclick" , ()=>{
-        love.style.transform = "translate(-50% , -50%) scale(1) rotate(0)"
-        setTimeout(() => {
-            love.style.transform = "translate(-50% , -50%) scale(0) rotate(90deg)"
-        }, 2000);
-    })
-</script>
+    const image = document.querySelector(".image");
+    const love = document.querySelector("i");
+    image.addEventListener("dblclick", () => {
+      // love.style.transform = "translate(-50% , 300%) scale(0) rotate(0)"
+      love.style.opacity = 1
+      love.style.transform = "translate(-50% , -50%) scale(1) rotate(0)";
+      setTimeout(() => {
+          love.style.opacity = 0
+        love.style.transform = "translate(-50% , -300%) scale(0) rotate(90deg)";
+      }, 800);
+      setTimeout(() => {
+        // love.style.opacity = 0
+        love.style.transform = "translate(-50% , -50%) scale(0) rotate(0deg)"
+      }, 1000);
+    });
+  </script>
 </html>
