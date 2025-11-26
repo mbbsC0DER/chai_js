@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;box-sizing: border-box;}
+        html,body{height: 100%;width: 100%;}
+        main{height: 100%;width: 100%;background-color: black;padding: 5rem;font-family: Arial, Helvetica, sans-serif;display: flex; flex-wrap: wrap;gap: 1rem;}
+        .card{width: 300px;background-color: antiquewhite;text-align: center;padding: 1rem;border-radius: 20px;}
+        .card img{width: 220px;height: 220px ; object-fit: cover;border-radius: 50%;box-shadow: 0px 10px 30px rgba(0,0,0,0.5);}
+        .card h3{font-size: 2rem;color: blue;padding: 10px;}
+        .card h4{font-size: 1.5rem; padding: 10px;}
+        .card p{font-size: 1rem;}
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="card">
+            <img src="https://imgs.search.brave.com/QMIRZRhg66RhCVkdr0qwSQAzsqJQwHZC7RIiuQfi5LY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9yYXRp/bmdzLWltYWdlcy1w/cm9kLnB1bHNlLmVh/LmNvbS9tYWRkZW4t/bmZsLTI2L3BvcnRy/YWl0cy8xMzEzLnBu/Zz9pbT1GYWNlQ3Jv/cCxwYWRkaW5nPTAu/Nw" alt="">
+            <h3>Pratham Negi</h3>
+            <h4>Fronted Dev</h4>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Placeat a minima officia cupiditate voluptate totam nisi nesciunt? Nemo, velit earum?
+            </p>
+        </div>
+    </main>
+</body>
+<script>
+    const users = [
+  {
+    fullName: "Aarav Sharma",
+    image: "https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e",
+    profession: "Frontend Developer",
+    description: "Aarav is a coffee-fueled coder who loves crafting smooth UI experiences and playing with animations.",
+    tags: ["JavaScript", "React", "CSS", "UI/UX"]
+  },
+  {
+    fullName: "Sara Khan",
+    image: "https://images.unsplash.com/photo-1502685104226-ee32379fefbe",
+    profession: "Graphic Designer",
+    description: "Sara blends colours and concepts like potions, creating visuals that feel alive and expressive.",
+    tags: ["Illustrator", "Branding", "Figma", "Creativity"]
+  },
+  {
+    fullName: "Rohit Verma",
+    image: "https://images.unsplash.com/photo-1527980965255-d3b416303d12",
+    profession: "Cybersecurity Analyst",
+    description: "Rohit spends his nights chasing vulnerabilities like a digital detective protecting the kingdom of code.",
+    tags: ["Networking", "Ethical Hacking", "Linux", "Security"]
+  },
+  {
+    fullName: "Nisha Patil",
+    image: "https://images.unsplash.com/photo-1531123897727-8f129e1688ce",
+    profession: "Data Scientist",
+    description: "Nisha loves turning messy data into elegant stories that reveal hidden patterns in the universe.",
+    tags: ["Python", "Machine Learning", "Data Viz", "Statistics"]
+  },
+  {
+    fullName: "Kabir Mehta",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330",
+    profession: "Content Creator",
+    description: "Kabir crafts engaging videos and short-form content that blends humour, clarity, and storytelling.",
+    tags: ["Video Editing", "Storytelling", "Social Media", "Creativity"]
+  }
+];
+let sum = ""
+users.forEach( (i)=>{
+    sum += `<div class="card">
+            <img src= ${i.image} alt="">
+            <h3>${i.fullName}</h3>
+            <h4>${i.profession}</h4>
+            <p>${i.description}
+            </p>
+        </div>`
+})
+document.querySelector("main").innerHTML = sum
+</script>
+</html>

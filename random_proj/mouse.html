@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+      }
+      main {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+      .elem {
+        height: 150px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-bottom: 3px solid white;
+      }
+      .elem h1 {
+        color: white;
+        font-size: 80px;
+        font-weight: 700;
+        z-index: 10;
+        mix-blend-mode: difference;
+      }
+      .elem img {
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+        opacity: 0;
+        position: absolute;
+        transition: all 0.2s linear;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="elem">
+        <h1>Blade Runner 2049</h1>
+        <img
+          src="https://imgs.search.brave.com/TgsfVzdHFdVOdZVrnnft9i8AzWWYMs0iUTJ8SG8K36k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLmVi/YXlpbWcuY29tL3Ro/dW1icy9pbWFnZXMv/Zy9VTVFBQU9Td2Ez/WlpuNTR0L3MtbDk2/MC53ZWJw"
+          alt="Blade Runner 2049 poster"
+        />
+      </div>
+      <div class="elem">
+        <h1>Inception</h1>
+        <img
+          src="https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SL1500_.jpg"
+          alt="Inception poster"
+        />
+      </div>
+
+      <div class="elem">
+        <h1>The Dark Knight</h1>
+        <img
+          src="https://imgs.search.brave.com/4y4FuTiajIEv7i4RYsHB-UaCx5x7o2STPdi3e76R9Ck/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzU4LzVh/LzAxLzU4NWEwMWMx/M2ExODA0ZGE0ODFj/Y2IxZGM4MGZhMGFl/LmpwZw"
+          alt="The Dark Knight poster"
+        />
+      </div>
+      <div class="elem">
+        <h1>Interstellar</h1>
+        <img
+          src="https://m.media-amazon.com/images/I/91kFYg4fX3L._AC_SL1500_.jpg"
+          alt="Interstellar poster"
+        />
+      </div>
+
+      <div class="elem">
+        <h1>Avengers: Endgame</h1>
+        <img
+          src="https://m.media-amazon.com/images/I/81ExhpBEbHL._AC_SL1500_.jpg"
+          alt="Avengers Endgame poster"
+        />
+      </div>
+    </main>
+  </body>
+  <script>
+    const container = document.querySelector(".elem");
+    const divs = document.querySelectorAll(".elem");
+
+    divs.forEach((i) => {
+      let img = i.querySelector("img");
+
+      i.addEventListener("mousemove", (e) => {
+        img.style.top = e.y + "px";
+        img.style.left = e.x + "px";
+        img.style.transform = "translate(-50%,-50%)";
+      });
+      i.addEventListener("mouseenter", (e) => {
+        img.style.opacity = 1;
+      });
+      i.addEventListener("mouseleave", (e) => {
+        img.style.opacity = 0;
+      });
+    });
+
+  </script>
+</html>
