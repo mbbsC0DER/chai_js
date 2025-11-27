@@ -8,10 +8,11 @@ html,
 body {
   height: 100%;
   width: 100%;
+  overflow: hidden;
 }
 
 main {
-  height: 100%;
+  height: 100vh;
   width: 100%;
   background-color: rgb(22, 21, 21);
 }
@@ -25,6 +26,10 @@ main nav {
   justify-content: space-between;
   color: white;
   padding: 10px;
+  position: fixed;
+  z-index: 30;
+  top: 0;
+  background-color: rgb(22, 21, 21);
 }
 main nav h3 {
   font-size: 1.5rem;
@@ -71,20 +76,83 @@ main nav div.aside div.create {
   background-color: rgb(38, 37, 37);
 }
 main section {
+  height: 100vh;
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+  color: white;
+  margin-top: 70px;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+main section div.container {
+  height: 90vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: relative;
+}
+main section div.container div.video {
   height: 100%;
   width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+main section div.container div.video video {
+  height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  border-radius: 10px;
+}
+main section div.container div.video div.bottom {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  z-index: 10;
+  background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.59));
+}
+main section div.container div.text {
+  width: 80%;
+  position: absolute;
+  bottom: 3%;
+  left: 0%;
+  z-index: 20;
+  padding: 10px 18px;
+}
+main section div.container div.text div.head {
   display: flex;
   gap: 0;
   justify-content: center;
   align-items: center;
-  align-items: flex-start;
+  justify-content: space-around;
 }
-main section div.container {
-  height: 90%;
-  width: 30%;
-  background-color: red;
-  border-radius: 10px;
-  position: relative;
+main section div.container div.text div.head h3 {
+  font-size: 1.8rem;
+  padding: 8px 0;
+}
+main section div.container div.text div.head button {
+  padding: 0.6rem;
+  border-radius: 15px;
+  border: none;
+}
+main section div.container div.text p {
+  height: 30px;
+  width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 main section div.container div.elements {
   position: absolute;
@@ -93,6 +161,12 @@ main section div.container div.elements {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  z-index: 20;
+  text-align: center;
+}
+main section div.container div.elements div.inner {
+  font-size: 16px;
+  font-weight: 700;
 }
 main section div.container div.elements div.btn {
   height: 50px;
@@ -113,4 +187,8 @@ main section div.container div.elements div.btn {
 
 .search:focus-within {
   border: 2px solid white;
+}
+
+section::-webkit-scrollbar {
+  display: none;
 }/*# sourceMappingURL=shorts.css.map */
