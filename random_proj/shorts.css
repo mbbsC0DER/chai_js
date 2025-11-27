@@ -78,7 +78,7 @@ main nav div.aside div.create {
 main section {
   height: 100vh;
   width: 100%;
-  padding-top: 20px;
+  padding: 20px 0;
   display: flex;
   gap: 2rem;
   justify-content: center;
@@ -86,7 +86,7 @@ main section {
   justify-content: flex-start;
   flex-direction: column;
   color: white;
-  margin-top: 70px;
+  margin: 70px 0;
   overflow-y: scroll;
   scroll-snap-type: y mandatory;
   scroll-behavior: smooth;
@@ -167,8 +167,10 @@ main section div.container div.elements {
 main section div.container div.elements div.inner {
   font-size: 16px;
   font-weight: 700;
+  pointer-events: none;
 }
 main section div.container div.elements div.btn {
+  pointer-events: none;
   height: 50px;
   width: 50px;
   border-radius: 50%;
