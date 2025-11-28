@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotlight</title>
+    <style>
+        @font-face {
+            font-family: marvel;
+            src: url("./Milker.otf");
+        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        background-color: black;
+      }
+      :root {
+        --sizex: 100px;
+        --sizey: 100px;
+      }
+      html {
+        font-family: marvel;
+      }
+      body{
+        overflow: hidden;
+      }
+      /* body{background-image: url(https://imgs.search.brave.com/FEvHxi-_YFY__gKQNDl1QSKSpFvPu2-yvEn8evGo_F0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzUwLzEzLzQw/LzM2MF9GXzUwMTM0/MDY5X29FU1pkQXJB/WHUzdmtvaXhUZHRk/QWZ2Uk5qMGZ1Vm1a/LmpwZw);
+            background-size: cover;background-position: center;} */
+      .box {
+        height: 100%;
+        width: 100%;
+        /* background: radial-gradient(
+          100px at var(--sizex) var(--sizey),
+          rgba(255, 255, 255, 0),
+          rgba(0, 0, 0, 0.897)
+        );
+        backdrop-filter: blur(50); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation : textStyle 5s forwards;
+        color: red;
+    }
+    @keyframes textStyle {
+        from {
+            flex-wrap: nowrap;
+            scale: 2;
+            font-weight: 999;
+            /* color: rgb(255, 0, 0); */
+        }
+        to{
+            flex-wrap: nowrap;
+            font-size: 10rem;
+            font-weight: 700;
+            scale: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="inner">MARVEL</div>
+    </div>
+  </body>
+  <script>
+    // const body = document.body
+    // body.addEventListener( "mousemove" , (e)=>{
+    //     body.style.setProperty("--sizex" , e.clientX + "px")
+    //     body.style.setProperty("--sizey" , e.clientY + "px")
+    // })
+
+    const alphabets =
+      "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm".split("");
+    const inner = document.querySelector(".inner");
+    let content = inner.innerText.split("");
+    inner.addEventListener("mouseenter", (e) => {
+      let revealIdx = 0;
+      let current = [...content];
+      let intervalId = setInterval(() => {
+        let obj = content.map((i, idx) => {
+          if (idx < revealIdx) return i;
+          return alphabets[Math.floor(Math.random() * alphabets.length)];
+        });
+        revealIdx += 0.1;
+        inner.innerText = obj.join("");
+
+        if (revealIdx >= content.length) {
+          inner.innerText = content.join("");
+          clearInterval(intervalId);
+        }
+      }, 100);
+    });
+  </script>
+</html>
