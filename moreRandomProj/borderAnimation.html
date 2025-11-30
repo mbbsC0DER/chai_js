@@ -42,19 +42,39 @@
         /* overflow: hidden; */
       }
       main nav {
-        max-height: 400px;
+        max-height: 500px;
         padding: 6px 60px;
-        background-color: rgb(219, 196, 155);
+        background-color: rgb(0, 0, 0);
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        anchor-name: --my-anchor;
       }
       main nav a {
-        color: rgb(109, 107, 107);
+        color: rgb(229, 222, 222);
         font-size: 1.2rem;
         font-weight: 600;
         text-decoration: none;
+        z-index: 10;
+        border-radius: 10px;
+        padding: 10px 1rem;
+    }
+    main nav .nav-item:hover{
+          anchor-name: --my-anchor;
       }
+    .anchor{
+        background-color: rgba(112, 111, 111, 0.522) ;
+        position: absolute ;
+        right: anchor(right);
+        left: anchor(left);
+        top: anchor(top);
+        bottom: anchor(bottom);
+        border-radius: 20px ;
+        mix-blend-mode: difference;
+        position-anchor: --my-anchor;
+        transition: all 0.4s ease;
+      }
+      
 
       .container {
         height: 100%;
@@ -63,11 +83,12 @@
         justify-content: center;
         align-items: center;
         gap: 1.5rem;
+        padding: 2rem 5rem;
         flex-wrap: wrap;
       }
       .box {
-        max-width: 320px;
-        max-height: 60%;
+        max-width: 260px;
+        max-height: 65%;
         display: flex;
         justify-content: space-evenly;
         align-items: center;
@@ -114,11 +135,12 @@
   <body>
     <main>
       <nav>
-        <a href="#">Products</a>
-        <a href="#">About Us</a>
-        <a href="#">Reviews</a>
-        <a href="#">Contact Us</a>
-        <a href="#">Support</a>
+        <a href="#" class="nav-item">Explore</a>
+        <a href="#" class="nav-item">Characters</a>
+        <a href="#" class="nav-item">Stories</a>
+        <a href="#" class="nav-item">Collections</a>
+        <a href="#" class="nav-item">Support</a>
+        <div class="anchor"></div>
       </nav>
       <div class="container">
       </div>
@@ -219,7 +241,7 @@
             div.style.textShadow = `0px 0px 0px ${i.color.dark}`
             div.style.boxShadow = `0px 0px 0px ${i.color.dark}`
             div.style.color = "whitesmoke";
-            /* div.style.animationPlayState = "paused"; */
+            div.style.animationPlayState = "paused";
         })
 
         div.innerHTML = `<img
