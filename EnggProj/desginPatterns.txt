@@ -1,0 +1,9 @@
+design patterns -- code likhne ka tarika 
+
+1. MODULE PATTERN :
+isme hum apna code ek self executing function (IIFE) ke andar rakhte hai taaki variables and fns private rahe .
+isme hum saare functions ko as an object return karte hai .
+pros = data encapsulated rehta hai , clean strc , code secure .
+
+2. FACTORY FUNCTION PATTERN :
+isme hum ek fn banate hai joh naye naye objects create karta hai (factory === object)
